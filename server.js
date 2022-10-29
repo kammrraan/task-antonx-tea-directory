@@ -7,14 +7,19 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const url =
-  "mongodb+srv://anton:anton@cluster0.wqwni3u.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(url, (err, db) => {
-  console.log("conneted to mongo");
-});
+const port = process.env.PORT || 3344;
+
+// const url =
+//   "mongodb+srv://anton:anton@cluster0.wqwni3u.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(
+  "mongodb://localhost:27017/antonx-tea-serectory",
+  (err, db) => {
+    console.log("conneted to mongo");
+  }
+);
 
 app.use("", routes.getRoute);
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
+app.listen(port, () => {
+  console.log("Server listening on port " + port);
 });
