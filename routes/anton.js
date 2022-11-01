@@ -15,6 +15,7 @@ const deleteRoute = router.delete(
   controllers.delete_anton
 );
 
+//find one by giving atn number
 const getOneRoute = router.get("/:atn", controllers.get_anton_by_atn);
 
 module.exports = { getRoute, updateRoute, deleteRoute, getOneRoute, postRoute };
