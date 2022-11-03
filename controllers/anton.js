@@ -27,6 +27,7 @@ const get_anton_by_atn = (req, res) => {
 };
 
 const post_anton = (req, res) => {
+  console.log("reached");
   const anton = new Anton({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -39,6 +40,7 @@ const post_anton = (req, res) => {
     .then((user) => {
       res.json({
         message: "New anton stored",
+        user,
       });
     })
     .catch((err) => {
